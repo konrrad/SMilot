@@ -60,20 +60,12 @@ class ConfigTranslator:
 
 
     def save_state(self,rooms_controller_map):
-        r=self.room_devices_map
-        print(r)
-        # for room in rooms:
-        #     devices_in_config=room["devices"]
-        #     devices_in_memory=self.room_devices_map[room]
-        #     for device_in_memory in devices_in_memory:
-        #         for device_in_config in devices_in_config:
-        #             if device_in_memory.get_name()==device_in_config["name"]:
-        #                 device_in_config["value"]=device_in_memory.get_value()
-        for room_in_memory_name in r.keys():
+        room_dev_map=self.room_devices_map
+        for room_in_memory_name in room_dev_map.keys():
             for room_in_config in self.config_provider.get_rooms_params():
                 if room_in_memory_name==room_in_config["name"]:
                     devices_in_config=room_in_config["devices"]
-                    devices_in_memory=r[room_in_memory_name]
+                    devices_in_memory=room_dev_map[room_in_memory_name]
                     for in_config in devices_in_config:
                         for in_memory in devices_in_memory:
                             if in_memory.get_name()==in_config["name"]:

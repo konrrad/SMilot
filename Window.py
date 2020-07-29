@@ -60,7 +60,6 @@ class Window(QWidget):
         controller.update_value_and_view(int(value))
 
     def save_state(self):
-        print("EEE")
         try:
             self.config_translator.save_state(self.room_controller_map)
         except Exception as e:
