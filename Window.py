@@ -59,9 +59,17 @@ class Window(QWidget):
         controller=self.coords_controller_map[topic]
         controller.update_value_and_view(int(value))
 
+    def save_state(self):
+        print("EEE")
+        try:
+            self.config_translator.save_state(self.room_controller_map)
+        except Exception as e:
+            self.error_handler.create_error(str(e))
+
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     window=Window('config.json')
     window.show()
     app.exec_()
+    window.save_state()

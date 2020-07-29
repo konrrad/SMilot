@@ -24,3 +24,8 @@ class ConfigProvider:
 
     def get_rooms_params(self):
         return self.data["rooms"]
+
+    def save_rooms(self,rooms):
+        self.data["rooms"]=rooms
+        with open(self.file_path,'w') as config:
+            json.dump(self.data,config)
