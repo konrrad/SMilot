@@ -68,7 +68,7 @@ class Window(QWidget):
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
-    window=Window('config.json')
+    window=Window(sys.argv[1])
     window.show()
     app.exec_()
     window.save_state()

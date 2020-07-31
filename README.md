@@ -9,10 +9,13 @@ się na brokerze mqtt.
 
 ###Działanie
 
-Pilot publikuje polecenia, które mogą być odbierane przez urządzenia oraz inne piloty,
-co sprawia, że każdy uruchomiony w danym momencie pilot posiada faktyczny stan urządzeń.
-Ponadto kiedy pilot X jest zamykany zapisuje swój stan w pliku, co pozwala przy ponownym uruchomieniu
-wczytać realny stan urządzeń. Kiedy pilot X jest offline a inne piloty publikują polecenia, wtedy pilot X
+- Pilot publikuje polecenia, które mogą być odbierane przez urządzenia oraz inne piloty.
+- Każdy uruchomiony w danym momencie pilot posiada faktyczny stan urządzeń.
+- Pilot, z którego zostało wysłane polecenie aktualizuje swoje wskazania na podstawie wysłanej przez siebie wiadomości
+do brokera, tzn. na podstawie subskrybcji danego tematu.
+- Kiedy pilot X jest zamykany zapisuje swój stan w pliku, co pozwala przy ponownym uruchomieniu
+wczytać realny stan urządzeń. 
+- Kiedy pilot X jest offline a inne piloty publikują polecenia, wtedy pilot X
 po uruchomieniu wczyta polecenia opublikowanie w czasie, gdy był offline.
 
 ###Budowa
@@ -52,6 +55,27 @@ Slider,który wie o swoim DeviceController.
 Główna klasa programu.
 
 
+####Pliki konfiguracyjne
+Zawierają:
+- nazwa klienta - musi być unikalna
+- address - ip brokera
+- port
+- hasło do brokera
+- tablica pokoi
+
+Każdy pokój składa się z:
+- nazwa pokoju - musi być unikalna
+- tablica urządzeń
+
+Struktura urzadzenia składa się z:
+- nazwa urządzenia - musi być unikalna
+- pole range 
+    - true dla urządzeń mogących przyjmować stany od 0 do 100
+    - false dla urządzeń przyjmujących stan włączony/wyłączony
+- pole value - ostatnia znany stan urządzenia
+- pole coordinates - topic w brokerze przypisany danemu urządzeniu
+
+
 ###Jak użyć
 
 Instalacja mosquitto
@@ -70,12 +94,19 @@ W osobnym terminalu:
 
 Uruchomienie pilota z przykładowym configiem:
 
+`pip3 install pyqt5`
+
 `python3 Window.py [plik_configu]`
 
 Przy pierwszym uruchomieniu warto zadbać, aby dane z configa były zgodne z realnymi.
 Można np ustawić wszystkie urządzenia na 0 w pliku i w rzeczywistości. Od tej pory urządzenia będą poprawnie reagować na polecenia.
 
 Teraz można wydawać polecenia za pomocą pilota i obserwować ich skutek w terminalu z klientem mosquitto_sub.
+
+Przykładowe polecenie:
+
+`mosquitto_pub -t 'home/Lazienka/Kranik' -m 11 --qos 2`
+
 
 Aby uruchomić kilka pilotów należy uruchomić je z innym [client_name]( ./config.json ) w pliku konfiguracyjnym.
 
