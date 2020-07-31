@@ -1,9 +1,9 @@
 import sys
 from PyQt5.QtWidgets import QWidget, QTabWidget, QVBoxLayout, QApplication
-from ConfigProvider import ConfigProvider
-from ConfigTranslator import ConfigTranslator
-from ErrorHandler import ErrorHandler
-from NetworkClient import NetworkClient
+from ConfigUtils.ConfigProvider import ConfigProvider
+from ConfigUtils.ConfigTranslator import ConfigTranslator
+from GUI.ErrorHandler import ErrorHandler
+from Network.NetworkClient import NetworkClient
 
 
 class Window(QWidget):

@@ -1,13 +1,13 @@
-#SMILOT
+# SMILOT
 
 Projekt na Programowanie w języku Python.
 
-###Cel
+### Cel
 
 Celem projektu było stworzenie pilota do inteligentnego domu, którego działanie miało opierać
 się na brokerze mqtt.
 
-###Działanie
+### Działanie
 
 - Pilot publikuje polecenia, które mogą być odbierane przez urządzenia oraz inne piloty.
 - Każdy uruchomiony w danym momencie pilot posiada faktyczny stan urządzeń.
@@ -18,44 +18,44 @@ wczytać realny stan urządzeń.
 - Kiedy pilot X jest offline a inne piloty publikują polecenia, wtedy pilot X
 po uruchomieniu wczyta polecenia opublikowanie w czasie, gdy był offline.
 
-###Budowa
+### Budowa
 
 
-####[Klasa Device](./Device.py)
+#### [Klasa Device](Device/Device.py)
 Struktura danych - reprezentuje urządzenie w programie.
 
-####[Klasa DeviceQWidget](./DeviceQWidget.py)
+#### [Klasa DeviceQWidget](GUI/DeviceQWidget.py)
 Widok dla danego urządzenia.
 
-####[Klasa DeviceController](./DeviceController.py)
+#### [Klasa DeviceController](Device/DeviceController.py)
 Zarządza urządzeniem oraz jego widokiem(aktualizuje wartości).
 
-####[Klasa NetworkClient](./NetworkClient.py)
+#### [Klasa NetworkClient](Network/NetworkClient.py)
 Zarządza połączeniem z brokerem. Odbiera i wysyła polecenia.
 
-####[Klasa ConfigProvider](./ConfigProvider.py)
+#### [Klasa ConfigProvider](ConfigUtils/ConfigProvider.py)
 Odczytuje config.
 
-####[Klasa ConfigTranslator](./ConfigTranslator.py)
+#### [Klasa ConfigTranslator](ConfigUtils/ConfigTranslator.py)
 Przebudowuje strukturę zawartą w configu na obiekty programu.
 
-####[Klasa ControllerCreator](./ControllerCreator.py)
+#### [Klasa ControllerCreator](Builders/ControllerCreator.py)
 Budowniczy dla DeviceController.
 
-####[Klasa ErrorHandler](./ErrorHandler.py)
+#### [Klasa ErrorHandler](GUI/ErrorHandler.py)
 Wyświetla okno z komunikatem błędu.
 
-####[Klasa DeviceBuilder](./DeviceBuilder.py)
+#### [Klasa DeviceBuilder](Builders/DeviceBuilder.py)
 Budowniczy dla Device.
 
-####[Klasa IdentifiedSlider](./IdentifiedSlider.py)
+#### [Klasa IdentifiedSlider](GUI/IdentifiedSlider.py)
 Slider,który wie o swoim DeviceController.
 
-####[Klasa Window](./Window.py)
+#### [Klasa Window](./Window.py)
 Główna klasa programu.
 
 
-####Pliki konfiguracyjne
+#### Pliki konfiguracyjne
 Zawierają:
 - nazwa klienta - musi być unikalna
 - address - ip brokera
@@ -76,7 +76,7 @@ Struktura urzadzenia składa się z:
 - pole coordinates - topic w brokerze przypisany danemu urządzeniu
 
 
-###Jak użyć
+### Jak użyć
 
 Instalacja mosquitto
 

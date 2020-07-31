@@ -1,6 +1,6 @@
 from Builders.ControllerCreator import ControllerCreator
-from DeviceBuilder import DeviceBuilder
-from DeviceQWidget import DeviceQWidget
+from Builders.DeviceBuilder import DeviceBuilder
+from GUI.DeviceQWidget import DeviceQWidget
 
 
 class ConfigTranslator:

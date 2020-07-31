@@ -1,4 +1,4 @@
-from Device import Device
+from Device.Device import Device
 
 
 class DeviceBuilder:

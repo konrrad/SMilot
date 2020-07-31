@@ -1,4 +1,4 @@
-from DeviceController import DeviceController
+from Device.DeviceController import DeviceController
 
 
 class ControllerCreator:

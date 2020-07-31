@@ -1,12 +1,11 @@
 import unittest
 import sys
-from unittest import mock
 
-from PyQt5.QtWidgets import QApplication, QWidget, QHBoxLayout, QVBoxLayout
+from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout
 
-from ControllerCreator import ControllerCreator
-from DeviceBuilder import DeviceBuilder
-from DeviceQWidget import DeviceQWidget
+from Builders.ControllerCreator import ControllerCreator
+from Builders.DeviceBuilder import DeviceBuilder
+from GUI.DeviceQWidget import DeviceQWidget
 
 
 class DeviceQWidgetTest(unittest.TestCase):

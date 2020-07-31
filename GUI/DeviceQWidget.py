@@ -2,7 +2,7 @@ from PyQt5.QtGui import QFont
 from PyQt5.QtWidgets import QWidget, QVBoxLayout, QPushButton, QHBoxLayout, QLabel
 from PyQt5.QtCore import Qt
 
-from IdentifiedSlider import IdentifiedSlider
+from GUI.IdentifiedSlider import IdentifiedSlider
 
 
 class DeviceQWidget(QWidget):
