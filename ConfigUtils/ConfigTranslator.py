@@ -1,4 +1,4 @@
-from ControllerCreator import ControllerCreator
+from Builders.ControllerCreator import ControllerCreator
 from DeviceBuilder import DeviceBuilder
 from DeviceQWidget import DeviceQWidget
 
