@@ -9,6 +9,8 @@ się na brokerze mqtt.
 
 ### Działanie
 
+- [Przykładowe uruchomienie](https://drive.google.com/file/d/1aFaUPXSzoOxpYg3ZnmBuC_lZq8iicHMc/view?usp=sharing)
+
 - Pilot publikuje polecenia, które mogą być odbierane przez urządzenia oraz inne piloty.
 - Każdy uruchomiony w danym momencie pilot posiada faktyczny stan urządzeń.
 - Pilot, z którego zostało wysłane polecenie aktualizuje swoje wskazania na podstawie wysłanej przez siebie wiadomości
