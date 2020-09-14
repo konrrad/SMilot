@@ -1,5 +1,5 @@
 # SMILOT
-#EN
+# EN
 
 ### Aim
 SMilot is a pilot for smart-home based on mqtt broker.
@@ -54,7 +54,7 @@ To start multiple instances of application, one should change the [client_name](
 Two configs are provided so one can test concurrent workflow of application.
 
 
-#PL
+# PL
 
 Projekt na Programowanie w języku Python.
 
