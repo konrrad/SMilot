@@ -1,4 +1,60 @@
 # SMILOT
+#EN
+
+### Aim
+SMilot is a pilot for smart-home based on mqtt broker.
+
+### Functionality
+
+- [Usage example](https://drive.google.com/file/d/1aFaUPXSzoOxpYg3ZnmBuC_lZq8iicHMc/view?usp=sharingno do)
+
+- SMilot publishes commands, that can be received by devices or other SMilots.
+- Each working pilot is aware of real-time state of its devices.
+- Pilot, that sent a command updates its state due to the message it sent to broker, i.e. its state is based on broker's state.
+- When pilot X is terminated, it saves its state to file. That enables it to load the real state of its devices when started again.
+- When pilot X is offline and other pilots publish commands, then pilot X will load the commands published when offline.
+
+
+### Usage
+
+Install mosquitto
+
+`sudo apt install mosquitto`
+
+`sudo apt install mosquitto-clients`
+
+Start mosquitto
+
+`mosquitto`
+
+In a new terminalu:
+
+`mosquitto_sub -v -t '#`
+
+Start pilot with example config
+
+`pip3 install pyqt5`
+
+`python3 Window.py [plik_configu]`
+
+On first start it is advised to calibrate the pilot.
+One should set all devices to 0 both in the SMilot and in reality.
+From now on, the devices will respond to the commands.
+
+One can control the devices from SMilot and observe their real state in terminal with mosquitto_sub client.
+
+Example command:
+
+`mosquitto_pub -t 'home/Lazienka/Kranik' -m 11 --qos 2`
+
+
+
+To start multiple instances of application, one should change the [client_name]( ./config.json ) in config file.
+
+Two configs are provided so one can test concurrent workflow of application.
+
+
+#PL
 
 Projekt na Programowanie w języku Python.
 
@@ -9,7 +65,7 @@ się na brokerze mqtt.
 
 ### Działanie
 
-- [Przykładowe uruchomienie](https://drive.google.com/file/d/1aFaUPXSzoOxpYg3ZnmBuC_lZq8iicHMc/view?usp=sharing)
+- [Przykładowe uruchomienie](https://drive.google.com/file/d/1aFaUPXSzoOxpYg3ZnmBuC_lZq8iicHMc/view?usp=sharingno do)
 
 - Pilot publikuje polecenia, które mogą być odbierane przez urządzenia oraz inne piloty.
 - Każdy uruchomiony w danym momencie pilot posiada faktyczny stan urządzeń.
